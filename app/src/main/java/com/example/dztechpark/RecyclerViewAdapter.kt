@@ -31,11 +31,7 @@ class RecyclerViewAdapter(
 
         fun bind(number: Int) {
             numberTextView.text = number.toString()
-            if (number % 2 == 1)
-                numberTextView.setBackgroundColor(BLUE)
-            else
-                numberTextView.setBackgroundColor(RED)
-
+            numberTextView.setBackgroundColor(if (number%2==1) BLUE else RED)
         }
     }
 }

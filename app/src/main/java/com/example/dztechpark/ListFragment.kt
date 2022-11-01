@@ -12,6 +12,8 @@ import com.example.dztechpark.databinding.FragmentListBinding
 class ListFragment : Fragment() {
     private companion object {
         private const val LAST_NUMBER = "LastNumber"
+        private const val PORTRAIT_COUNT = 3
+        private const val LANDSCAPE_COUNT = 4
     }
 
     private lateinit var binding: FragmentListBinding
@@ -41,9 +43,9 @@ class ListFragment : Fragment() {
         binding.recyclerView.adapter = recyclerViewAdapter
         val orientation = resources.configuration.orientation
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            binding.recyclerView.layoutManager = GridLayoutManager(requireActivity(), 3)
+            binding.recyclerView.layoutManager = GridLayoutManager(requireActivity(), PORTRAIT_COUNT)
         } else {
-            binding.recyclerView.layoutManager = GridLayoutManager(requireActivity(), 4)
+            binding.recyclerView.layoutManager = GridLayoutManager(requireActivity(), LANDSCAPE_COUNT)
         }
         binding.buttonAdd.setOnClickListener {
             lastNumber++
